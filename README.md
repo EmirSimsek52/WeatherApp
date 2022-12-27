@@ -1,3 +1,3 @@
 # WeatherApp
  WeatherApp with React-native and OpenWeather'S  API
-  ![resim1](https://user-images.githubusercontent.com/104012238/205760035-1b4bffe0-55ef-412a-a1be-ab36c7f4bc0b.jpg)
+  ![resim1](https://user-images.githubusercontent.com/104012238/209712040-e7b4e22a-80a1-49fb-85ab-c10d6e2afaf7.png)
