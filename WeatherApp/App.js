@@ -33,6 +33,7 @@ export default function App(){
         setData(res.data);
       })
       .catch(e =>console.dir(e))
+      .then(() => setLoading(false))
       
     }, [api.key,input]);
 
@@ -57,6 +58,13 @@ export default function App(){
                     style={styles.arama}
                     onSubmitEditing={fetchDataHandler}
                     />
+                      {
+                      loading && (
+                        <View>
+                          <ActivityIndicator size={'large'} color="red"/>
+                        </View>
+                      )
+                    }
                     <View>
                     {
                     data &&  (
