@@ -19,7 +19,7 @@ export default function App(){
     const[data,setData] = useState([]);
     const api={
 
-      key:'Your Api Key',
+      key:'Your api key',
       baseUrl:'http://api.openweathermap.org/data/2.5/',
       };
     const fetchDataHandler = useCallback(() => {
@@ -36,9 +36,9 @@ export default function App(){
       .then(() => setLoading(false))
       
     }, [api.key,input]);
+      
 
-
-    
+    if(data!=""){
   return(
       <View style={styles.container}>
        <FadeInView style={styles.container}>
@@ -58,7 +58,8 @@ export default function App(){
                     style={styles.arama}
                     onSubmitEditing={fetchDataHandler}
                     />
-                      {
+                  
+                    {
                       loading && (
                         <View>
                           <ActivityIndicator size={'large'} color="red"/>
@@ -89,6 +90,42 @@ export default function App(){
                     </FadeInView>
       </View>
   );
+} else{
+  return(
+    <View style={styles.container}>
+     <FadeInView style={styles.container}>
+        <Image 
+              style={styles.resim}
+              source={{
+                uri:'https://freepngimg.com/thumb/categories/2275.png'
+              }}
+              />
+               <Text style={styles.baslik}>
+                  Weather forecast
+                  </Text>
+                  <TextInput placeholder='Enter City Name'
+                  onChangeText={text => setInput(text)}
+                  value={input}
+                  placeholderTextColor={'black'}
+                  style={styles.arama}
+                  onSubmitEditing={fetchDataHandler}
+                  />
+                
+                  {
+                    loading && (
+                      <View>
+                        <ActivityIndicator size={'large'} color="red"/>
+                      </View>
+                    )
+                  }
+                  <View>
+                  
+                  </View>
+                 
+                  </FadeInView>
+    </View>
+);
+}
 }
 
 const styles = StyleSheet.create({
